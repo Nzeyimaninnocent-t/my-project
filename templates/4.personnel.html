@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Business Planning</title>
+
+    
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="{% static 'https://fonts.gstatic.com/' %}">
+    <link href="{% static './3.personnel_files/css' %}" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{% static './3.personnel_files/app.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static './3.personnel_files/icon' %}">
+
+    <link rel="stylesheet" id="stylesheet" href="{% static './3.personnel_files/bpqb.css' %}">
+
+    <link rel="stylesheet" href="{% static './3.personnel_files/Chart.min.css' %}">
+    <style>
+      .navbar button{
+        background-color: #670f90;
+      }
+      .next{
+        width: 95px;
+        background-color: #670f90;
+      }
+      .previous{
+        width: 95px;
+        background-color: #670f90;
+      }
+      .next a{
+      color: #ffffff;
+    }
+    .previous a{
+      color: #ffffff;
+    }
+    </style>
+</head>
+
+
+
+
+<body>
+  <div id="app"><nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a data-html2canvas-ignore="true" href="" class="navbar-brand"><img src="{% static 'images/ENTR Lane logo.png' %}" width="80"height="80" class="logo"></a> <button data-html2canvas-ignore="true" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" ><span class="navbar-toggler-icon"></span></button></div> <div data-html2canvas-ignore="true" id="navbarSupportedContent" class="collapse navbar-collapse"><ul class="navbar-nav mr-auto"></ul> <ul class="navbar-nav ml-auto"><a href=""><button type="button" class="button">Go to trial</button></a> 
+                          
+</a> </div></nav></div>
+    <main>
+        
+
+
+
+
+
+
+<div class="tableBox">
+    <form method="POST" id="thisForm" action="{% url 'personnel' %}">
+      {% csrf_token %}
+      <div class="inputRow">
+      <div class="inputColumn1">
+
+        </div>
+      </div>
+      
+    
+      <div class="inputRow">
+        <div class="inputColumn1 popup">
+          <div class="inputLabel"> Person<sup>*</sup>
+            </div>
+        </div>
+        <div class="inputColumn2">
+        <span class="showCharCount" id="showCharCountKeyPerson"> </span>
+          <input class="forminput" type="text" placeholder="e.g. Jane Smith" required name="keyperson" id="keyPerson" size="100" maxlength="99" required> <br>
+          
+        </div>
+      </div>
+
+     
+
+      <div class="inputRow">
+        <div class="inputColumn1 popup">
+          <div class="inputLabel"> Role<sup>*</sup>
+            <span class=" popup material-icons">help</span>
+            <span class="popupText" id="popUpKeyPersonRole">Some position titles are specific to the legal form of your business e.g.<br><b>Sole trader:</b> Owner, Proprietor, Founder, Principal<br><b>Partnership:</b> Partner, Managing Partner, Co-Founder, Junior Partner<br><b>Limited Liability Company:</b> CEO, MD, President, Director, Vice President<br><b>Any business:</b> Manager, Chief, Executive, Supervisor, Head<br>
+</span>
+          </div>
+        </div>
+        <div class="inputColumn2">
+        <span class="showCharCount" id="showCharCountKeyPersonRole"> </span>
+           <input class="forminput" id="keyPersonRole" type="text" placeholder="e.g. Owner" name="keypersonrole" size="100" maxlength="99" required> <br>
+         
+        </div>
+      </div>
+
+      <div class="inputRow">
+        <div class="inputColumn1 popup">
+          <div class="inputLabel"> Responsibilities<sup>*</sup>
+            <span class=" popup material-icons">help</span>
+            <span class="popupText"  id="popUpkeyPersonResponsibilities">Highlight the expertise the person brings to the business e.g.<br><b>Strategy:</b> strategic planning, business development, business turnaround<br><b>Technical:</b> product design, information systems, diagnosis and fault repair<br><b>Finance:</b> raising finance, financial control, initial public offerings<br><b>People:</b> leading a team, training and development, health and safety<br><b>Sales:</b> creating leads, making deals, advertising and branding<br><b>Sector specific:</b> car maintenance, garden design, system development<br></span>
+          </div>
+        </div>
+        <div class="inputColumn2">
+        <span class="showCharCount" id="showCharCountKeyPersonResponsibilities"> </span>
+          <input class="forminput" type="text" placeholder="e.g. strategic planning and making deals" name="keypersonresponsibilities" id="keyPersonResponsibilities"  size="100" maxlength="199" required> <br>
+        
+        </div>
+      </div>
+
+               
+
+      <div class="inputRow">
+        <div class="inputColumn1">
+          <div class="textinput"> </div>
+        </div>
+        <div class="inputColumn2">
+          <button class="button previous" type="submit" ><a href="{% url 'resources' %}">Previous</a></button>
+          <button class="button next" type="submit" >Next</button>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+  
+    </main>
+
+
+
+</body></html>

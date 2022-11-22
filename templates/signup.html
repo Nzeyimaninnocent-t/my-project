@@ -1,0 +1,62 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENTREPRENEURS'LANE</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    
+    <div class="parent">
+        
+        <div class="child1">
+        <img src=" {% static 'image/logo.png'%} " alt="" width="128px" height="128px" style="margin-left: 65px; float:left;">
+        <img src="{% static 'image/move.png' %}" alt="" >
+            <h1> Welcome to <span class="wh">Entrepreneurs'</span>Lane <span class="wh">!</span></h1>
+            <p>Register now and get all key an
+                <br />Entrepreneur needs to start and 
+                <br />grow his/her business.
+            </p>
+          
+           
+    
+        </div>
+        <div class="child2" >
+        {% for msg in message %}
+        {{ msg }}
+        {% endfor %}
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="container">
+                    <h1> ENTREPRENEURS'<span class="h" >LANE</span></h1>
+                    <p>Registration.</p>
+    
+                    <label For="first name"><br/>First name </label>
+                    <input type="text" placeholder=" enter your first name" name="fname" id="fname" required/>
+                    <label For="last name"><br/>Last name </label>
+                    <input type="text" placeholder="enter your last name" name="lname" id="lname" reqquired />
+                    <label For="e-mail"><br/>Username</label>
+                    <input type="text" placeholder=" enter your username" name="username" id="username" />
+                    <label For="e-mail"><br/>E-mail</label>
+                    <input type="text" placeholder=" enter your e-mail" name="email" id="email" />
+                    <label For="password"><br />Password</label>
+                    <input type="password"placeholder="enter your password" name="pass" id="psw" required />
+                    <label For="confirm password">Confirm Password</label>
+                    <input type="password" placeholder="confirm your password" name="confirmpass" id=" repeat_psw" required />
+                    <button type="submit">Register</button>
+                    <p>Already have an account? <span class="button1">Login</span></p>
+    
+                </div>
+            </form>
+    
+        </div>
+    
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,120 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurs</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    
+
+
+
+<body>
+<nav>   
+<div class="ul">
+    <ul>
+        <li><img src="{% static 'images/ENTR Lane logo.png' %}" width="100"height="100" class="logo"></li>
+        <span class="together">
+            <li><a class="active" href="{% url 'index' %}">Home</a></li>
+            <li><a href="#news">Company ▾</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'aboutus' %}">About us</a></li>
+                  
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact us</a></li>
+                 
+                </ul>
+            </li>
+            <li>
+                <a href="#">Services ▾</a>
+            <ul class="dropdown">
+                <li><a href="{% url 'literacy' %}">Learn key skills in business</a></li>
+                <li><a href="{% url 'business' %}">Get a proffesional business plan</a></li>
+                <li><a href="#">Get a mentor from your business category</a></li>
+                <li><a href="#">Get a strong pitch deck</a></li>
+                <li><a href="#">Find investor</a></li>
+            </ul>
+            </li>
+            <li><a href="#about">Blog </a></li>
+            <li><button type="submit" value="Get started"><a href="{% url 'signup' %}">Sign Up</a></button></li>
+            <li><button type="submit" value="Get started"><a href="{% url 'login' %}">Log In</a></button></li>
+        </span>
+
+      </ul>
+</div>
+</nav> 
+    <main class="container">
+        <div class="main">
+      
+               <div class="gradientpar"><p><b><span  class="white">Improve </span><span class="span"> your business idea</span><br> <span class="white">Make</span> <span class="span"> a good plan</span><br> <span class="white">Pitch</span> <span class="span">good investors</span> <br> <span class="white">and</span> <span class="span">get funded</span> .</b></p></div> 
+               <div class="gradientimage"><img src="{% static 'images/money.png' %}"></div>
+              
+        </div>
+        <h1><b style="text-align: center;">How it Work</b></h1>
+        <div class="cards">
+            
+            <div class="subcards">
+                <img src="https://img.icons8.com/dotty/80/000000/learn-more.png" width="100px"height="100px" style="margin-left:90px; ">
+            <p>  Gain necessary <br>business<br> knowledge.</p>
+            </div>
+            
+            <div class="subcards up">
+                <img src="https://img.icons8.com/ios/50/000000/what-i-do.png"width="100px"height="100px" style="margin-left:90px; "> 
+                <p>Make a quality <br>business plan <br>and post it.</p>
+                
+            </div>
+            <div class="subcards up">
+                <img src="https://img.icons8.com/external-ddara-lineal-ddara/64/null/external-investor-investment-ddara-lineal-ddara.png" width="100px"height="100px" style="margin-left:90px;">
+                <p>Engage with <br> interested <br>investors.</p></div>
+            <div class="subcards"><p>Seal the deal and <br> get funded</p></div>
+            
+        </div>
+
+    </main>
+    <div class="undersubcards">
+       <h1 style="color: black;">STEPS FOR ENTREPRENEURS</h1>
+       <P style="color: black;"><i>get knowledge help and fundings on our platform.</i></P>
+       <table cellspacing="15">
+        <tr>
+            <td rowspan="2" class="first col-md-11" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">1.LEARN KEY SKILLS <br>OF BUSINESS FOR ENTREPRENEURS <br><br> A great entrepreneur must a certain set of skills to help him/her run A successful business.let us help you to develop your entrepreneurial skills to help you avoiding common pitfalls
+                
+            </td>
+            <td class="unblack col-md-11">2.SET UP A PROFILE <br><br> Select whether your business is already exist or if it's astart up business and choose your business category
+            </td>
+            <td class="black col-md-11">3.FIND A MENTOR AND ASK FOR ADVICE <br><br> A mentor will give you the honest truth about your concept and help you in performing market research.</td>
+            <tr>
+                <td class="black col-md-11">4.MAKE BUSINESS PLAN <br><br>Determine your capital range and needs,then make a good business plan.We offer you a proffessional business plan writer.</td>
+                <td class="unblack col-md-11">5.CREATE A STRONG PITCH DECK <br><br>Create a perfect pitch deck to make your pitch successful.we offer you a proffessional pitch deck designer.</td>
+            </tr>
+        </tr>
+        <tr>
+            <td class="getstarted"><button type="submit" value="Get started"><a href="signup.html" class="getstarted">Get started</a></button></td>
+            <td class="getstarted"><button type="submit" value="Get started"><a href="signup.html">Sign Up</a></button></td>
+        </tr>
+
+        
+       </table>
+    </div>
+    <div class="undergetstarted">
+       <table cellspacing="50">
+         <tr><td> <span class="servicepar"> <b>Our Services</b></span> <br><br> <span class="whatwe">What We </span><span class="servicepar"> <b>Do</b></span> <span class="tablewhite">.We would like to play a role in execute of your big idea or be a part of your team in making great changes in making great changes in your existing business.</span></td><td class="threecards"><span class="entrepreneur">give you entrepreneurial skills</span> <br> give you entrepreneurial skills gain necessary business knowledge quickly and become successful. </td><td class="threecards"> <span class="entrepreneur">We give you a mentor</span> <br> Get yourself amentor who has experience in your business category to give you advice and make your time productive.</td></tr>
+         <tr><td class="twocards"> <span class="entrepreneur">We connect entreprenuers to investors</span> <br> Meet investors right here and implement or emprove your business</td><td class="threecards"> <span class="entrepreneur">We make your business plan</span> <br> let us make you a proffetional summary which will server as a key point of reference for investors.</td><td class="twocards"> <span class="entrepreneur">We design your pitch deck</span> <br> Our proffectional pitch deck designs will do the rest for you in reaching out potential investors.</td></tr>
+         
+       </table>
+    </div>
+    <div class="underentrepreneur">
+        <div class="all">
+        <p class="opportunities1">Are you an <span class="investment">Investor</span>?  Looking for the right<br> <span class="investment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;investment opportunities</span>?</p>
+        <p class="opportunities">Meet plenty of new potential opportunities from young entreprenuers for you to invest in.</p>
+    </div>
+
+     
+        
+        
+    </div>
+
+   
+</body>
+</html>

@@ -1,0 +1,293 @@
+body{
+  background-size: cover;
+  width: 100%;
+}
+ul {
+  padding: 0;
+  list-style: none;
+  background-color:white;
+}
+ul li {
+  display: inline-block;
+  position: relative;
+  line-height: 21px;
+  text-align: left;
+}
+ul li a {
+  display: block;
+  padding: 8px 25px;
+  color:black;
+  text-decoration: none;
+}
+ul li a:hover {
+  color: #fff;
+  background: #939393;
+}
+ul li ul.dropdown {
+
+  background-color:rgb(248,250,252);
+  display: none;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  width: 200px;
+}
+ul li:hover ul.dropdown {
+  display: block; /* Display the dropdown */
+}
+ul li ul.dropdown li {
+  display: block;
+}
+.ul button{
+  
+  font-family: sans-serif;
+  font-size: 10px;
+  background-color:rgb(152,133,176);
+  color: white; 
+  height: 50px;
+  border-radius: 8px;
+}
+.together{
+  float: right;
+  
+}
+li a:active{
+  background-color: rgb(116,62,185);
+}
+li a {
+  display: block;
+  color:black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: Poppins,sans-serif;
+  font-size: 20px;
+ 
+}
+
+/* container */
+.container{
+    margin: 0%;
+    padding-top:60px;
+    height: 600px;
+    background-color:rgb(248,250,252); 
+    /* background-image: linear-gradient(to right, rgb(1,1,1) , rgb(33,29,38) ,rgb(116,62,185));   */
+    position: relative;
+    width: 100%;
+    background-size: cover;
+   
+
+  
+}
+.span{
+  color: rgb(116,62,185);
+  font-family: sans-serif;
+  font-size: 50px;
+  
+}
+.white{
+  color: rgb(116,62,185);
+  font-family: sans-serif;
+  font-size: 50px;
+}
+.gradientpar{
+  margin-left: 100px;
+}
+
+.gradientimage img{
+  margin-left: 200px;
+  width: 450px;
+  
+
+
+}
+.main{
+  display: inline-flex;
+}
+.cards{
+  display: inline-flex;
+  margin-top: 10px;
+  height: 150px;
+}
+.subcards{
+  color: white;
+  background-color: rgb(48,39,59); 
+  background-image: linear-gradient(to bottom,  rgb(30,25,35) ,rgb(99,54,155)); 
+  margin: 10px;
+  width: 200px;
+  margin-left: 100px;
+  height: 200px;
+  
+
+ 
+  
+}.subcards p{
+  margin-top: 7px;
+  text-align: center;
+  font-size: 23px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  width: 100%;
+
+
+
+  
+}
+
+.up{
+  margin-top: 50px;
+  height: 170px;
+}
+.undersubcards{
+  background-color:rgb(248,250,252);
+  height: 900px;
+  width: 100%;
+  padding-top: 20px;
+  
+  
+}
+.undersubcards h1{
+  color: white;
+  margin-top: 250px;
+  margin-left: 390px;
+  
+}
+.undersubcards p{
+  color: white;
+  margin-left: 410px;
+
+
+}
+.unblack{
+background-color: rgb(48,39,59); 
+background-image: linear-gradient(to bottom,  rgb(30,25,35) ,rgb(99,54,155));
+color: white;
+width: 300px;
+height: 180px;
+border-radius: 8px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.black{
+  color: white;
+  background-color: rgb(0,0,0);
+  width: 300px;
+  height: 180px;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+}
+.first{
+  color: white;
+  background-color: rgb(13,8,21);
+  border-radius: 8px;
+}
+table{
+  width: 90%;
+  margin-left: 40px;
+
+}
+table tr td{
+  padding: 15px;
+
+
+}
+.first{
+  height: 400px;
+  width: 400px;
+  background-color: rgb(13,8,21);
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.getstarted button{
+  background-color: rgb(80,46,122);
+  width: 130px;
+  height: 30px;
+  border: none;
+  margin-left: 200px;
+  border-radius: 8px;
+
+}
+.getstarted a{
+  color: white;
+  font-size: 16px;
+  font-family: poppin,sans-serif;
+  text-decoration: none;
+
+}
+.undergetstarted{
+  background-color:rgb(248,250,252);
+}
+.undergetstarted table tr td{
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.threecards{
+  background-image: linear-gradient(to bottom,  rgb(31,26,36) ,rgb(64,35,101));
+  width: 200px;
+  height: 180px;
+}
+.twocards{
+ background-color: rgb(31,26,36);
+ width: 200px;
+height: 180px;
+}
+.servicepar{
+  color: rgb(92,48,149);
+  font-size: 20px;
+  font-family: poppins,sans-serif;
+}
+.whatwe{
+  color:black;
+  font-size: 20px;
+  font-family: poppins,sans-serif;
+}
+.tablewhite{
+  color: black;
+}
+.entrepreneur{
+  color: white;
+  font-size: large;
+  font-size: 20px;
+}
+.underentrepreneur{
+  background-color:rgb(248,250,252);
+  padding-top: 40px;
+  
+}
+.opportunities{
+  color: black;
+  font-size: 20px;
+  font-weight: 400px;
+
+}
+.underentrepreneur button{
+  background-color: rgb(123,64,198);
+  width: 150px;
+  height: 25px;
+
+}
+.investment{
+  color:rgb(123,64,198);
+  font-size: 50px;
+  font-family: poppin,sans-serif;
+}
+.opportunities1{
+  font-size: 50px;
+  font-family: poppin,sans-serif;
+  color: black; 
+}
+.all{
+  margin-left: 100px;
+}
+.knowledgetb{
+  width: 400px;
+  margin-left: 300px;
+  padding: 40px 40px;
+}
+
+
+
+
+
+

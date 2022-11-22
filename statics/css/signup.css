@@ -1,0 +1,96 @@
+body{
+    background-image: linear-gradient(to bottom, rgb(31,26,36), rgb(64,35,101));
+  }
+  
+  .Parent {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .child1 {
+    width: 50%;
+    height: 100vh;
+    background-color:rgb(11, 5, 18, 0.87);
+    text-align: center;
+    color: whitesmoke;
+    height: 980px;
+    float: left;
+  }
+  .child2 {
+        width: 60%;
+        padding: 30px;
+        height: 100vh;
+        border: whitesmoke 5px;
+        /* background-image: linear-gradient(to bottom, rgb(6,5,7,1),rgb(60,25,105,0.92), rgb(0,0,0,1)); */
+        height:920px;
+        float: right;
+        margin-top: 2px;
+    }
+    input{
+          padding: 12px 20px;
+          margin: 8px  0;
+          font-size: 25px;
+          display: inline-block;
+          width: 100%;
+          outline: none;
+          box-sizing: border-box;
+          border: 2px solid rgba(123, 64, 198, 1);
+          margin-bottom: 20px;
+          padding-top: 0px;
+          color: white;
+          border-radius: 7px;
+          background-color: rgba(31,26,36,1);
+    }
+    button{
+     padding: 14px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color:whitesmoke;
+    background-color:rgba(123, 64, 198, 1);
+    margin: 8px;
+   width: 100%;
+   opacity: 1;
+  border-radius: 50px;
+  cursor: pointer;
+  
+  }
+  .button1{
+  padding: 4px 17px;
+  color: whitesmoke;
+  border-radius: 5px;
+  background-color: rgba(123, 64, 198, 1);
+  
+  }
+  
+  .act{
+  text-align: left;
+  color:whitesmoke;
+  }
+  .container{
+  padding: 25px;
+  color: whitesmoke; 
+  font-size: 28px;
+  padding-top: 0px;
+  }
+  h1{
+    color: whitesmoke;
+    text-align: center;
+    
+  }
+  p{
+    padding-top: 0px;
+    color: whitesmoke;
+    text-align: center;
+  }
+  .hy{
+    color: rgb(189, 119, 255);
+  }
+  .h{
+    color: rgba(142, 18, 200, 1);
+    font-family: 'Times New Roman';
+  }
+  .wh{
+    color:rgba(123, 64, 198, 1) ;
+    
+  }
+   

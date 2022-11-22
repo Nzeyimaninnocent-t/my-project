@@ -1,0 +1,1708 @@
+
+// message popups, menus and snackbars
+
+function toggleHideShow(element) {
+    var element = document.getElementById(element);
+    if (element.style.display === "none") {
+      element.style.display = "block";
+    } else {
+      element.style.display = "none";
+    }
+  } 
+
+  function toggleHideShowBurgerDropDown(element) {
+    var element = document.getElementById(element);
+    if (element.style.display === "none") {
+      element.style.backgroundColor= "white";
+      element.style.height="100vh";
+      element.style.width="300px";
+      element.style.display = "block";
+    } else {
+       
+      element.style.display = "none";
+      
+    }
+  } 
+
+function toggleShowPopUp(popUpId) {
+    var elements = document.querySelectorAll('[id^=popUp]');
+    for (let i = 0; i < elements.length; i++) {
+        if (elements[i].id != popUpId) {
+            elements[i].style.visibility = "hidden";
+        }
+    }
+
+    var popup = document.getElementById(popUpId);
+
+    popup.classList.remove("popupText");
+    void popup.offsetWidth;
+    popup.classList.add("popupText");
+
+    var textContentOfPopUp = popup.innerHTML;
+    textContentOfPopUp = textContentOfPopUp.replace('<br>X Close', '');
+    console.log(textContentOfPopUp);
+    popup.innerHTML = textContentOfPopUp + '<br>X Close';
+
+    if (popup.style.visibility == 'hidden' || popup.style.visibility === '') {
+        popup.style.visibility = "visible";
+    } else {
+        popup.style.visibility = "hidden";
+    }
+}
+
+function toggleHidePopUp(popUpId) {
+    var popup = document.getElementById(popUpId);
+    console.log(popUpId);
+    popup.style.visibility = "hidden";
+}
+
+function timedShowPopUp(popUpId, time) {
+    console.log("timed");
+    var popup = document.getElementById(popUpId);
+    toggleShowPopUp(popUpId);
+    setTimeout(function () {
+        popup.style.visibility = "hidden";
+    }, time);
+}
+
+function snackBar(text) {
+    var snackBar = document.getElementById("snackbar");
+    snackBar.innerHTML = text;
+    snackBar.className = "show";
+    setTimeout(function () { snackBar.className = snackBar.className.replace("show", ""); }, 5000);
+}
+
+function countCharInput(resource, maxChar, charCountTag, before, after) {
+    var currentLength = resource.value.length;
+    let showCharCount = document.getElementById(charCountTag);
+    showCharCount.style.display = 'block';
+
+    if (resource.value) {
+        resourceText = '&nbsp;<u>&nbsp;&nbsp;' + resource.value + '&nbsp;&nbsp;</u>&nbsp;';
+    } else {
+        resourceText = '&nbsp;<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>&nbsp;';
+    }
+
+    showCharCount.innerHTML = 'Preview: "' + before + '<font color="black"><b> ' + resourceText + '</b></font>' + after + '"';
+}
+
+function hideCountChar(charCountTag) {
+    let showCharCount = document.getElementById(charCountTag);
+    showCharCount.style.display = 'none';
+    console.log('hide');
+}
+
+function passElement(element) {
+
+    let elementValue = document.getElementById(element).value;
+    if (elementValue) {
+        elementText = elementValue;
+    } else {
+        elementText = ' ... ';
+    }
+    return elementText
+}
+
+// cookies
+
+// Cookies
+
+
+
+function getCookieValue(cookieName) {
+
+    let cookieDecoded = decodeURIComponent(document.cookie);
+    let cookieArray = cookieDecoded.split(';');
+
+    for (let i = 0; i < cookieArray.length; i++) {
+
+        let cookieElement = cookieArray[i].trim();
+
+        if (cookieElement.indexOf(cookieName + '=') > -1) {
+            return cookieElement.substring(cookieName.length + 1);
+        }
+    }
+
+    return "";
+}
+
+// submit
+
+function submitThisForm() {
+    document.getElementById("thisForm").submit();
+    console.log("save");
+}
+
+function submitBizzLinkHandleForm() {
+    document.getElementById("bizzLinkHandleForm").submit();
+}
+
+function changeBookMarkTag(tag){
+    bookMarkTag = document.getElementById('bookMarkTag');
+    bookMarkTag.value = tag;
+    console.log(bookMarkTag.value);
+  }
+
+// Finance Calcs
+
+function calcSalesEvent() {
+    console.log("calcSalesEvent()");
+    let salesUnitFreqPerDayElement = document.getElementById("salesUnitFreqPerDay");
+    let salesUnitPriceElement = document.getElementById("salesUnitPrice");
+    let salesPerDayElement = document.getElementById("salesPerDay");
+    let salesYearOneElement = document.getElementById("salesYearOne");
+
+    salesPerDayElement.value = calcSalesPerDay(salesUnitFreqPerDayElement.value, salesUnitPriceElement.value);
+    salesYearOneElement.value = calcSalesYearOne(salesPerDayElement.value);
+
+}
+
+function calcSalesPerDay(salesUnitFreqPerDay, salesUnitPrice) {
+    let salesPerDay = salesUnitPrice * salesUnitFreqPerDay;
+    return salesPerDay;
+}
+
+function calcSalesYearOne(salesPerDay) {
+    let salesYearOne = salesPerDay * 365;
+    return salesYearOne;
+}
+
+function calcExpensesEvent() {
+
+    console.log("calcExpensesEvent()");
+
+    let bankExpensesYearOneElement = document.getElementById("bankExpensesYearOne");
+    let depreciationExpensesYearOneElement = document.getElementById("depreciationExpensesYearOne");
+    let employeeExpensesYearOneElement = document.getElementById("employeeExpensesYearOne");
+    let insuranceExpensesYearOneElement = document.getElementById("insuranceExpensesYearOne");
+    let marketingExpensesYearOneElement = document.getElementById("marketingExpensesYearOne");
+    let officeExpensesYearOneElement = document.getElementById("officeExpensesYearOne");
+    let otherExpensesYearOneElement = document.getElementById("otherExpensesYearOne");
+    let premisesExpensesYearOneElement = document.getElementById("premisesExpensesYearOne");
+    let professionaExpensesYearOneElement = document.getElementById("professionaExpensesYearOne");
+    let shippingExpensesYearOneElement = document.getElementById("shippingExpensesYearOne");
+    let travelExpensesYearOneElement = document.getElementById("travelExpensesYearOne");
+    let utilityExpensesYearOneElement = document.getElementById("utilityExpensesYearOne");
+    let expensesYearOneElement = document.getElementById("expensesYearOne");
+
+    expensesYearOneElement.value =
+        parseFloat(bankExpensesYearOneElement.value) + parseFloat(depreciationExpensesYearOneElement.value)
+        + parseFloat(employeeExpensesYearOneElement.value) + parseFloat(insuranceExpensesYearOneElement.value) + parseFloat(marketingExpensesYearOneElement.value)
+        + parseFloat(officeExpensesYearOneElement.value) + parseFloat(otherExpensesYearOneElement.value) + parseFloat(premisesExpensesYearOneElement.value)
+        + parseFloat(professionaExpensesYearOneElement.value) + parseFloat(shippingExpensesYearOneElement.value)
+        + parseFloat(travelExpensesYearOneElement.value) + parseFloat(utilityExpensesYearOneElement.value);
+
+}
+
+// Text adjustments
+
+function getSalesModelText(saleModel, spanElement){
+    let salesModelText='';
+    switch (saleModel) {
+        case 'compound':
+        salesModelText = 'compound growth';
+        break;
+        case 'straightLine':
+        salesModelText = 'straight line growth';
+        break;
+        case 'delayedCompound':
+        salesModelText = 'delayed compound growth';
+        break;
+        case 'delayedStraightLine':
+        salesModelText = 'delayed straight line growth';
+        break;
+        case 'peakDeclineCompound':
+        salesModelText = 'compound growth to peak then decline';
+        break;
+        case 'peakDeclineStraightLine':
+        salesModelText = 'straight line growth to peak then decline';
+        break;
+        case 'intermittentCompound':
+        salesModelText = 'intermittent compound growth';
+        break;
+        case 'intermittentStraightLine':
+        salesModelText = 'intermittent straight line growth';
+        break;
+            
+        default:
+        salesModelText = 'compound growth';
+        break;
+    }
+    let salesModelTextSpan = document.getElementById(spanElement);
+    salesModelTextSpan.innerHTML = salesModelText;
+
+}
+
+// Outputs
+
+function copyDivToClipboard(divId, user) {
+
+    if (userIsPremium(user)) {
+        var businessPlan = document.getElementById(divId).innerHTML;
+        elHtml = stripReferenceToCharts(businessPlan);
+        let htmlWithLineBreak = elHtml.replace(/<br\s*\/?>/ig, "\r\n")
+        var plainText = stripHtml(htmlWithLineBreak);
+        copyStringToClipboard(plainText);
+
+        snackBar("The business plan has been copied to your memory clipboard and is ready to paste");
+    } else {
+        window.location.replace("/upgradeToPremium");
+    }
+
+}
+
+function ifPremiumGenerateBusinessPlanDocx(businessPlansJson, keyPersonsJson, resourcesJson, competitorsJson, opportunitiesJson, strategicStepsJson, user) {
+   
+    if (userIsPremium(user)) {
+        generateBusinessPlanDocx(businessPlansJson, keyPersonsJson, resourcesJson, competitorsJson, opportunitiesJson, strategicStepsJson);
+        snackBar("The business plan has been saved as businessPlan.docx in your download folder.");
+    } else {
+        window.location.replace("/upgradeToPremium");
+    }
+
+}
+
+
+
+function copyLinkDivToClipboard() {
+
+    var range = document.createRange();
+    range.selectNode(document.getElementById("link"));
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges(); // to deselect
+
+    snackBar("The link has been copied to your memory clipboard and is ready to paste.");
+
+}
+
+function printScreen(user) {
+    window.print();
+}
+
+function saveHtmlAsHtmlFile(user) {
+
+    if (userIsPremium(user)) {
+
+        businessPlan = document.getElementById("businessPlan").innerHTML;
+        businessPlan = stripReferenceToCharts(businessPlan);
+
+        var elHtml = "<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><style>* {box-sizing: border-box;} .row:after {content: '';display: table; clear: both;}</style></head><body>" + businessPlan + "</body></html>";
+        var link = document.createElement('a');
+        var mimeType = mimeType || 'text/html';
+
+        link.setAttribute('download', "businessplan.html");
+        link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(elHtml));
+        link.click();
+
+        snackBar("The business plan has been saved as businessplan.html in your download folder.");
+    } else {
+        window.location.replace("/upgradeToPremium");
+
+    }
+}
+
+function saveHtmlAsPlainFile(user) {
+
+    if (userIsPremium(user)) {
+
+        var businessPlan = document.getElementById("businessPlan").innerHTML;
+        elHtml = stripReferenceToCharts(businessPlan);
+        let htmlWithLineBreak = elHtml.replace(/<br\s*\/?>/ig, "\r\n")
+        var plainText = stripHtml(htmlWithLineBreak);
+        var link = document.createElement('a');
+        var mimeType = mimeType || 'text/txt';
+
+        link.setAttribute('download', "businessplan.txt");
+        link.setAttribute('href', 'data:' + mimeType + ';charset=utf-8,' + encodeURIComponent(plainText));
+        link.click();
+
+        snackBar("The business plan has been saved as businessplan.txt in your download folder.");
+    } else {
+        window.location.replace("/upgradeToPremium");
+    }
+
+}
+
+function sendHtmlAsEmail(user) {
+
+    if (userIsPremium(user)) {
+        let elHtml = document.getElementById("businessPlan").innerHTML;
+        let htmlWithLineBreak = elHtml.replace(/<br\s*\/?>/ig, "%0D%0A")
+
+        window.location = "mailto:" + user.email + "?subject=Business Plan&body=" + stripHtml(htmlWithLineBreak);
+    } else {
+        window.location.replace("/upgradeToPremium");
+
+    }
+
+}
+
+function sendLinkAsEmail(user, businessPlan) {
+
+    let elHtml = document.getElementById("link").innerHTML;
+    let htmlWithLineBreak = elHtml.replace(/<br\s*\/?>/ig, "%0D%0A")
+    window.location = "mailto:" + user.email + "?subject= Link for " + businessPlan.businessName + "&body=" + "Please follow this link to see details of " + businessPlan.businessName + ": %0A%0A%0A" + stripHtml(htmlWithLineBreak);
+
+
+}
+
+// images
+
+function imageChanged(event, imageElement) {
+    let image = document.getElementById(imageElement);
+    image.src = URL.createObjectURL(event.target.files[0]);
+    image.onload = function () {
+        URL.revokeObjectURL(image.src) // free memory
+    }
+}
+
+// slide show
+
+function slideShow() {
+    var i;
+    var slidesArray = document.getElementsByClassName("slides");
+    var slidePositionMarkersArray = document.getElementsByClassName("slidePositionMarker");
+
+    for (i = 0; i < slidesArray.length; i++) {
+        slidesArray[i].style.display = "none";
+    }
+
+    slideIndex++;
+
+    if (slideIndex > slidesArray.length) {
+        slideIndex = 1
+    }
+    for (i = 0; i < slidePositionMarkersArray.length; i++) {
+        slidePositionMarkersArray[i].className = slidePositionMarkersArray[i].className.replace(" active", "");
+    }
+
+    slidesArray[slideIndex - 1].style.display = "block";
+    slidePositionMarkersArray[slideIndex - 1].className += " active";
+    setTimeout(slideShow, 8000);
+}
+
+
+// helper functions
+
+function stripHtml(html) {
+
+    let cleanText = html.replace(/<(?:[^>=]|='[^']*'|="[^"]*"|=[^'"][^\s>]*)*>/g, '')
+        .split(/\n/)
+        .map(function (line) {
+            return line.replace(/(&nbsp;)/g, ' ').trim();
+        }).filter(function (line) {
+            return line != '' && line != '&nbsp;';
+        })
+        .join('\n');
+    return cleanText;
+}
+
+
+function userIsPremium(user) {
+    var todaysDate = new Date().toJSON().slice(0, 19).replace('T', ' ');
+
+    if (user.subscription == "Premium" & user.subscriptionEndDate > todaysDate) {
+        console.log("isPremium continue");
+        return true;
+    } else {
+        console.log("isNotPremium goto upgrade");
+        return false;
+    }
+
+}
+
+function convertFirstLetterOfStringToLowerCase(stringToConvert) {
+    stringToConvertStr = stringToConvert.value;
+    stringToConvert.value = stringToConvertStr.charAt(0).toLowerCase() + stringToConvertStr.slice(1);
+    return stringToConvert;
+}
+
+function widthIsUnder210() {
+    var check = false;
+
+    console.log(window.innerWidth);
+    if (canvas.width < 210) {
+        check = true;
+    }
+    return check;
+
+}
+
+function isMobile() {
+    var check = false;
+    (function (a) {
+        if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4)))
+            check = true;
+    })(navigator.userAgent || navigator.vendor || window.opera);
+    return check;
+};
+
+function chart(dataArray, title, xLabels, yLabel, chartElement, hashColor) {
+    // var ctx = document.getElementById('myChart').getContext('2d');
+
+    var chart = new Chart(chartElement, {
+        // Type of chart
+        type: 'bar',
+
+        // Data for dataset
+        data: {
+            labels: xLabels,
+
+            datasets: [{
+                label: title,
+                backgroundColor: [hashColor, hashColor, hashColor, hashColor, hashColor],
+                data: dataArray
+            }
+            ]
+
+        },
+
+        // Configuration 
+        options: {
+            //top
+            responsive: true,
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        color: "rgb(128, 128, 128)",
+                    },
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Years'
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        color: "rgb(128, 128, 128)",
+                    },
+
+
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: yLabel
+                    }
+                }]
+            }
+
+            //bottom
+        }
+    });
+    console.log("bottom");
+}
+
+function stripReferenceToCharts(businessPlantoStrip) {
+    var businessName = document.getElementById("businessName").innerHTML;
+    console.log(businessName + "2");
+    businessPlantoStrip = businessPlantoStrip.replace("SALES GENERATED FROM MARKETING", "");
+    businessPlantoStrip = businessPlantoStrip.replace("The chart below shows the sales that are generated from " + businessName + "'s market positioning and competitive advantage.", "");
+    businessPlantoStrip = businessPlantoStrip.replace("NET PROFIT", "");
+    businessPlantoStrip = businessPlantoStrip.replace("The chart below shows the net profit generated each year.", "");
+    businessPlantoStrip = businessPlantoStrip.replace("CASH POSITION", "");
+    businessPlanStriped = businessPlantoStrip.replace("The chart below shows the cash position at the end of each year.", "");
+    return businessPlanStriped;
+}
+
+function copyStringToClipboard(stringToCopyToClipboard) {
+
+    var tempTextElement = document.createElement('textarea');
+    tempTextElement.value = stringToCopyToClipboard;
+
+    // add readonly & style so does not show
+    tempTextElement.setAttribute('readonly', '');
+    tempTextElement.style = { position: 'absolute', left: '-9999px' };
+
+    document.body.appendChild(tempTextElement);
+    tempTextElement.select();
+
+    document.execCommand('copy');
+    document.body.removeChild(tempTextElement);
+}
+
+async function tryDocx() {
+
+    var docx = require("docx");
+    var fs = require('fs');
+
+    const doc = new docx.Document({
+        sections: [{
+            properties: {},
+            children: [
+                new docx.Paragraph({
+                    children: [
+                        new docx.TextRun("Hello World"),
+                        new docx.TextRun({
+                            text: "Foo Bar",
+                            bold: true,
+                        }),
+                        new docx.TextRun({
+                            text: "\tGithub is the best",
+                            bold: true,
+                        }),
+                    ],
+                }),
+            ],
+        }],
+    });
+
+
+    docx.Packer.toBlob(doc).then((blob) => {
+        saveAs(blob, "businessPlan.docx");
+        console.log("Docx generated");
+    });
+
+
+
+}
+
+
+
+async function generateBusinessPlanDocx(businessPlansJson, keyPersonsJson, resourcesJson, competitorsJson, opportunitiesJson, strategicStepsJson) {
+
+    var docx = require("docx");
+    var fs = require('fs');
+
+    var themeFontSizeMultiplier = parseFloat(businessPlansJson[0].themeFontSize.replace('em',''));
+    var normalFontSize = Math.round(24 * themeFontSizeMultiplier);
+    var headingFontSize = Math.round(52 * themeFontSizeMultiplier);
+    var tableCellFontSize = Math.round(24 * themeFontSizeMultiplier);
+
+    // document elements
+
+    var blackBarImageUrl = "../js/blackBar.png";
+    var blackBarImage = await getDocxImageFromUrl(blackBarImageUrl, 600, 25);
+
+    var frontCover = await getFrontCover(headingFontSize, businessPlansJson);
+
+    var contentHeader = await getHeader("Content", headingFontSize);
+    var contentPara = getTextPara("contentPara", headingFontSize, 2);
+
+    var missionHeader = await getHeader("Mission", headingFontSize);
+    var missionPara = getTextPara("missionPara", normalFontSize, 2);
+
+    var executiveSummaryHeader = await getHeader("Executive Summary", headingFontSize);
+    var executiveSummaryPara = getTextPara("executiveSummaryPara", normalFontSize, 2);
+
+    var businessTopPara = getTextPara("businessTopPara", normalFontSize, 1);
+    var businessHeader = await getHeader("Business", headingFontSize);
+    var managementTeamTableLabel = getTextPara("managementTeamTableLabel", normalFontSize, 1);
+    var managementTeamPara = getTextPara("managementTeamPara", normalFontSize, 1);
+    var resourcesTopPara = getTextPara("resourcesTopPara", normalFontSize, 1);
+    var resourcesBottomPara = getTextPara("resourcesBottomPara", normalFontSize, 1);
+    var businessSummaryPara = getTextPara("businessSummaryPara", normalFontSize, 1);
+    let keyPersonTableHeaders = createkeyPersonTableHeaders(tableCellFontSize);
+    var keyPersonTableToAddToDocument = await getTableRows(keyPersonTableHeaders, keyPersonsJson, true, "single", "1", "#000000", "", tableCellFontSize);
+    let resourceTableHeaders = createEmptyTableHeaders();
+    var resourceTableToAddToDocument = await getTableRows(resourceTableHeaders, resourcesJson, false, "none", "0", "#FFFFFF", " - ", tableCellFontSize);
+
+
+    var marketHeader = await getHeader("Market", headingFontSize);
+    var marketTopPara = getTextPara("marketTopPara", normalFontSize, 1);
+    var competitionTableLabel = getTextPara("competitionTableLabel", normalFontSize, 1);
+    var marketSummaryPara = getTextPara("marketSummaryPara", normalFontSize, 1);
+    var salesChartTopPara = getTextPara("salesChartTopPara", normalFontSize, 1);
+    let competitorTableHeaders = createCompetitorTableHeaders(tableCellFontSize);
+    var competitorTableToAddToDocument = await getTableRows(competitorTableHeaders, competitorsJson, false, "single", "1", "#000000", "", tableCellFontSize);
+    var salesChart = document.getElementById('salesChart');
+    var salesChartImage = await getDocxImageFromDiv(salesChart, 600, 310);
+
+
+    var strategyHeader = await getHeader("Strategy", headingFontSize);
+    var strategyTopPara = getTextPara("strategyTopPara", normalFontSize, 1);
+    var strategyMiddlePara = getTextPara("strategyMiddlePara", normalFontSize, 1);
+    var strategyBottomPara = getTextPara("strategyBottomPara", normalFontSize, 1);
+    let opportunityTableHeaders = createEmptyTableHeaders();
+    var opportunityTableToAddToDocument = await getTableRows(opportunityTableHeaders, opportunitiesJson, false, "none", "0", "#FFFFFF", " - ", tableCellFontSize);
+    let strategicStepTableHeaders = createEmptyTableHeaders();
+    var strategicStepTableToAddToDocument = await getTableRows(strategicStepTableHeaders, strategicStepsJson, false, "none", "0", "#FFFFFF", " - ", tableCellFontSize);
+
+
+    var financeHeader = await getHeader("Finance", headingFontSize);
+    let incomeStatementTableHeaders = createFinanceTableHeaders(tableCellFontSize);
+    let incomeStatement = createIncomeStatementArray(businessPlansJson);
+    var financeTopPara = getTextPara("financeTopPara", normalFontSize, 1);
+    var incomeStatementTableLabel = getTextPara("incomeStatementTableLabel", normalFontSize, 1);
+    var netProfitChartTopPara = getTextPara("netProfitChartTopPara", normalFontSize, 1);
+    var netProfitChart = document.getElementById('netProfitChart');
+    var netProfitChartImage = await getDocxImageFromDiv(netProfitChart, 600, 310);
+    var incomeStatementTableToAddToDocument = await getTableRows(incomeStatementTableHeaders, incomeStatement, false, "single", "1", "#000000", "", tableCellFontSize);
+
+    var cashFlowTopPara = getTextPara("cashFlowTopPara", normalFontSize, 1);
+    let cashflowTableHeaders = createFinanceTableHeaders(tableCellFontSize);
+    let cashflow = createCashFlowArray(businessPlansJson);
+    var cashflowTableToAddToDocument = await getTableRows(cashflowTableHeaders, cashflow, false, "single", "1", "#000000", "", tableCellFontSize);
+    var cashTableLabel = getTextPara("cashTableLabel", normalFontSize, 1);
+    var cashChartTopPara = getTextPara("cashChartTopPara", normalFontSize, 1);
+    var cashChart = document.getElementById('cashChart');
+    var cashChartImage = await getDocxImageFromDiv(cashChart, 600, 310);
+
+    let breakevenTableHeaders = createFinanceTableHeaders(tableCellFontSize);
+    var breakevenTopPara = getTextPara("breakevenTopPara", normalFontSize, 1);
+    let breakeven = createBreakevenArray(businessPlansJson);
+    var breakevenTableToAddToDocument = await getTableRows(breakevenTableHeaders, breakeven, false, "single", "1", "#000000", "", tableCellFontSize);
+    var breakevenTableLabel = getTextPara("breakevenTableLabel", normalFontSize, 1);
+    var financeSummaryPara = getTextPara("financeSummaryPara", normalFontSize, 1);
+
+    var conclusionHeader = await getHeader("Conclusion", headingFontSize);
+    var conclusionPara = getTextPara("conclusionPara", normalFontSize, 1);
+
+    var appendixHeader = await getHeader("Appendix", headingFontSize);
+    var assumptionsPara = getTextPara("assumptionsPara", normalFontSize, 1);
+    var soarTopPara = getTextPara("soarTopPara", normalFontSize, 1);
+    var soarMiddlePara = getTextPara("soarMiddlePara", normalFontSize, 1);
+    var soarBottomPara = getTextPara("soarBottomPara", normalFontSize, 1);
+    let expensesTableHeaders = createExpensesTableHeaders(tableCellFontSize);
+    let expenses = createExpensesArray(businessPlansJson);
+    var expensesTableToAddToDocument = await getTableRows(expensesTableHeaders, expenses, false, "single", "1", "#000000", "", tableCellFontSize);
+    var glossaryPara = getTextPara("glossaryPara", normalFontSize, 1);
+    var contactPara = getTextPara("contactPara", normalFontSize, 1);
+
+
+    // new document 
+    const doc = await new docx.Document({
+        sections: [
+            {
+
+                children: [
+
+                    // Front Cover
+                    frontCover,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+
+                    // Contents
+                    contentHeader,
+                    contentPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+
+                    // Mission
+                    missionHeader,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    missionPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+
+                    // Executive Summary
+                    executiveSummaryHeader,
+                    executiveSummaryPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+
+                    // Business
+                    businessHeader,
+                    businessTopPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+
+                    keyPersonTableToAddToDocument,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: managementTeamTableLabel,
+                                underline: {
+                                    type: "SINGLE",
+                                }
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    managementTeamPara,
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "Key Resources",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    resourcesTopPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    resourceTableToAddToDocument,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    resourcesBottomPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    businessSummaryPara,
+
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+
+                    // Market
+                    marketHeader,
+                    marketTopPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+
+                    competitorTableToAddToDocument,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: competitionTableLabel,
+                                underline: {
+                                    type: "SINGLE",
+                                }
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    marketSummaryPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "SALES GENERATED FROM MARKETING",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    salesChartTopPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    new docx.Paragraph({
+                        children: [salesChartImage],
+                    }),
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    strategyHeader,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    strategyTopPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    opportunityTableToAddToDocument,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    strategyMiddlePara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    strategicStepTableToAddToDocument,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    strategyBottomPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    financeHeader,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    financeTopPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    incomeStatementTableToAddToDocument,
+
+                    incomeStatementTableLabel,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "NET PROFIT",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    netProfitChartTopPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    new docx.Paragraph({
+                        children: [netProfitChartImage],
+                    }),
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "CASH FLOW",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    cashFlowTopPara,
+                    cashflowTableToAddToDocument,
+                    cashTableLabel,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "CASH POSITION",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    cashChartTopPara,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    new docx.Paragraph({
+                        children: [cashChartImage],
+                    }),
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "BREAK EVEN ANALYSIS",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    breakevenTopPara,
+                    breakevenTableToAddToDocument,
+                    breakevenTableLabel,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    financeSummaryPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    conclusionHeader,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    conclusionPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    appendixHeader,
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "A. Assumptions",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    assumptionsPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "B. SOAR SUMMARY",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    soarTopPara,
+                    resourceTableToAddToDocument,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    soarMiddlePara,
+                    opportunityTableToAddToDocument,
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    soarBottomPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "C. Expenses",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    expensesTableToAddToDocument,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    //glossaryPara
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "D. Glossary",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    glossaryPara,
+                    new docx.Paragraph({
+                        children: [new docx.TextRun(""), new docx.PageBreak()],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+
+
+
+
+                    //
+                    new docx.Paragraph({
+                        children: [
+                            new docx.TextRun({
+                                text: "E. Contact Details",
+                                bold: true,
+                                size: normalFontSize,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        children: [],
+                    }),
+                    contactPara,
+
+
+
+                ],
+            },
+        ],
+    });
+
+
+    docx.Packer.toBlob(doc).then((blob) => {
+        saveAs(blob, "businessPlan.docx");
+        console.log("Docx generated");
+    });
+}
+
+
+
+async function getHeader(headerText, size) {
+    var docx = require("docx");
+    var fs = require('fs');
+
+    var blackBarImageUrl = "../js/blackBar.png";
+    var blackBarImage = await getDocxImageFromUrl(blackBarImageUrl, 600, 25);
+
+    var para = new docx.Paragraph({
+        children: [
+            blackBarImage,
+            new docx.TextRun({
+                text: headerText,
+                size: size,
+            }),
+            blackBarImage,
+        ]
+    });
+
+
+
+    return para;
+}
+
+async function getFrontCover(size, businessPlansJson) {
+    var docx = require("docx");
+    var fs = require('fs');
+    //
+    if (businessPlansJson[0].logo) {
+        var logoImage;
+
+        if (businessPlansJson[0].logo !== null) {
+            var imageUrl = "../storage/" + businessPlansJson[0].logo;
+            logoImage = await getDocxImageFromUrl(imageUrl, 100, 100);
+        } else {
+            logoImage = new docx.TextRun({
+                text: "",
+            })
+        }
+    }
+
+    //
+
+    var blackBarImageUrl = "../js/blackBar.png";
+    var blackBarImage = await getDocxImageFromUrl(blackBarImageUrl, 600, 25);
+
+    var para = new docx.Paragraph({
+        children: [
+            logoImage,
+            new docx.TextRun({
+                text: "  ",
+                size: size,
+            }),
+            new docx.TextRun({
+                text: businessPlansJson[0].planStartYear,
+                bold: true,
+                size: size,
+            }),
+            blackBarImage,
+            new docx.TextRun({
+                text: businessPlansJson[0].businessName,
+                bold: true,
+                size: size,
+            }),
+            blackBarImage,
+            new docx.TextRun({
+                text: "Business Plan",
+                bold: true,
+                size: size,
+            }),
+           
+        ]
+    });
+
+
+
+    return para;
+}
+
+
+async function getTableRows(table, rowDataJson, isThereAnImage, borderStyle, borderSize, borderColor, cellprefix, fontSize) {
+    var docx = require("docx");
+    var fs = require('fs');
+    for (var i = 0; i < rowDataJson.length; i++) {
+
+        if (isThereAnImage == true) {
+            var imageInTable;
+
+            if (rowDataJson[i].keyPersonImage !== null) {
+                var imageUrl = "../storage/" + rowDataJson[i].keyPersonImage;
+                imageInTable = await getDocxImageFromUrl(imageUrl, 100, 100);
+            } else {
+                imageInTable = new docx.TextRun({
+                    text: "",
+                })
+            }
+        }
+
+        var keys = [];
+        for (var k in rowDataJson[i]) keys.push(k);
+
+        var tableRow = await addTableRow(rowDataJson, i, keys, borderStyle, borderSize, borderColor, cellprefix, fontSize);
+
+        if (isThereAnImage == true) {
+            tableRow.addChildElement(new docx.TableCell({
+                children: [
+                    new docx.Paragraph({
+                        children: [imageInTable],
+                    })]
+            }));
+        }
+
+        table.addChildElement(tableRow);
+
+    }
+    return table;
+}
+
+async function addTableRow(rowDataJson, i, keys, borderStyle, borderSize, borderColor, cellprefix, fontSize) {
+    var docx = require("docx");
+    var fs = require('fs');
+
+    var tableRow = await new docx.TableRow({
+        children: [
+        ],
+    });
+
+    for (var k = 1; k < (keys.length - 2); k++) {
+        tableRow.addChildElement(await addTableCell(rowDataJson, i, keys, k, borderStyle, borderSize, borderColor, cellprefix, fontSize));
+    }
+
+    return tableRow;
+}
+
+async function addTableCell(rowDataJson, i, keys, keyIndex, borderStyle, borderSize, borderColor, cellprefix, fontSize) {
+    var docx = require("docx");
+    var fs = require('fs');
+
+    var tableCell = new docx.TableCell({
+
+
+        children: [new docx.Paragraph({
+            children: [
+                new docx.TextRun({
+                    text: " " + cellprefix + rowDataJson[i][keys[keyIndex]],
+                    size: fontSize,
+                }),
+            ],
+        })],
+        borders: {
+            top: { style: borderStyle, size: borderSize, color: borderColor },
+            bottom: { style: borderStyle, size: borderSize, color: borderColor },
+            left: { style: borderStyle, size: borderSize, color: borderColor },
+            right: { style: borderStyle, size: borderSize, color: borderColor },
+        },
+
+    });
+    return tableCell;
+}
+
+async function getDocxImageFromUrl(imageUrl, width, height) {
+
+    var docx = require("docx");
+    var fs = require('fs');
+    let image;
+    await new Promise(async (resolve, reject) => {
+        await fetch(imageUrl)
+            .then(response => response.blob())
+            .then(function (myBlob) {
+                image = new docx.ImageRun({
+                    data: myBlob,
+                    transformation: {
+                        width: width,
+                        height: height,
+                    },
+                });
+
+                resolve();
+            });
+    });
+    return image;
+}
+
+function getCleanTextFromElement(textElement) {
+
+    var element = document.getElementById(textElement).innerHTML;
+    cleanText = element.replace(/<\/?[^>]+(>|$)/g, "");
+    cleanText = cleanText.replace(/&nbsp;/g, "");
+
+    return cleanText;
+}
+
+function getCleanText(text) {
+
+    cleanText = text.replace(/<\/?[^>]+(>|$)/g, "");
+    cleanText = cleanText.replace(/&nbsp;/g, "");
+
+    return cleanText;
+}
+
+function getTextPara(textElement, size, breaks) {
+    var docx = require("docx");
+    var fs = require('fs');
+
+    var para = new docx.Paragraph({
+        children: [
+        ]
+    });
+
+    var element = document.getElementById(textElement).innerHTML;
+    var textArray = element.split("<br>");
+
+    for (var i = 0; i < textArray.length; i++) {
+        cleanText = getCleanText(textArray[i]);
+
+        var text = new docx.TextRun({
+            text: cleanText,
+            size: size,
+        });
+        para.addChildElement(text);
+
+        text = new docx.TextRun({
+            text: "",
+            break: breaks,
+        });
+        para.addChildElement(text);
+    }
+
+    return para;
+}
+
+async function getDocxImageFromDiv(DivObj, width, height) {
+    let image;
+    var docx = require("docx");
+    var fs = require('fs');
+    await new Promise(async (resolve, reject) => {
+        await DivObj.toBlob(function (blob) {
+
+            image = new docx.ImageRun({
+                data: blob,
+                transformation: {
+                    width: width,
+                    height: height,
+                },
+            });
+
+            resolve();
+        });
+    });
+    return image;
+}
+
+function createkeyPersonTableHeaders(tableCellFontSize) {
+    var docx = require("docx");
+    let keyPersonTableHeaders = new docx.Table({
+        columnWidths: [2250, 2250, 2250, 2250],
+
+        rows: [
+            new docx.TableRow({
+                children: [
+                    new docx.TableCell({
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " Person",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " Role",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " Responsibilities",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " Image",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                ],
+            }),
+        ],
+    });
+
+    return keyPersonTableHeaders;
+
+}
+
+function createCompetitorTableHeaders(tableCellFontSize) {
+    var docx = require("docx");
+    let competitorTableHeaders = new docx.Table({
+        width: {
+            size: 9000,
+            type: 'dxa',
+        },
+        columnWidths: [3000, 6000],
+
+        rows: [
+            new docx.TableRow({
+                children: [
+                    new docx.TableCell({
+                        width: {
+                            size: 3000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+
+                                children: [
+                                    new docx.TextRun({
+                                        text: " Competitor",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        width: {
+                            size: 6000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " Weakness",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+
+                ],
+            }),
+        ],
+    });
+
+    return competitorTableHeaders;
+
+}
+
+function createEmptyTableHeaders() {
+    var docx = require("docx");
+    let emptyTableHeaders = new docx.Table({
+        columnWidths: [9000],
+        rows: [
+            new docx.TableRow({
+
+                children: [
+                    new docx.TableCell({
+                        borders: {
+                            top: { style: "none", size: 0, color: "#FFFFFF" },
+                            bottom: { style: "none", size: 0, color: "#FFFFFF" },
+                            left: { style: "none", size: 0, color: "#FFFFFF" },
+                            right: { style: "none", size: 0, color: "#FFFFFF" },
+                        },
+                        children: [
+                        ],
+                    }),
+                ],
+            }),
+        ],
+    });
+
+    return emptyTableHeaders;
+}
+
+function createFinanceTableHeaders(tableCellFontSize) {
+    var docx = require("docx");
+    let financeTableHeaders = new docx.Table({
+        width: {
+            size: 9000,
+            type: 'dxa',
+        },
+        columnWidths: [2000, 1000, 1000, 1000, 1000, 1000],
+
+        rows: [
+            new docx.TableRow({
+                children: [
+                    new docx.TableCell({
+                        width: {
+                            size: 2000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+
+                                children: [
+                                    new docx.TextRun({
+                                        text: "Years",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        width: {
+                            size: 1000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " 1",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        width: {
+                            size: 1000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " 2",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        width: {
+                            size: 1000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " 3",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        width: {
+                            size: 1000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " 4",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        width: {
+                            size: 1000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " 5",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+
+                ],
+            }),
+        ],
+    });
+
+    return financeTableHeaders;
+}
+
+function createExpensesTableHeaders(tableCellFontSize) {
+    var docx = require("docx");
+    let competitorTableHeaders = new docx.Table({
+        width: {
+            size: 9000,
+            type: 'dxa',
+        },
+        columnWidths: [6000, 3000],
+
+        rows: [
+            new docx.TableRow({
+                children: [
+                    new docx.TableCell({
+                        width: {
+                            size: 6000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+
+                                children: [
+                                    new docx.TextRun({
+                                        text: " Expenses",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableCell({
+                        width: {
+                            size: 3000,
+                            type: 'dxa',
+                        },
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.TextRun({
+                                        text: " Year 1",
+                                        size: tableCellFontSize,
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+
+                ],
+            }),
+        ],
+    });
+
+    return competitorTableHeaders;
+
+}
+
+function createIncomeStatementArray(businessPlansJson) {
+
+    let incomeStatment = new Array();
+    incomeStatment[0] = { id: 1, label: "Sales", salesYearOne: businessPlansJson[0].salesYearOne, salesYearTwo: businessPlansJson[0].salesYearTwo, salesYearThree: businessPlansJson[0].salesYearThree, salesYearFour: businessPlansJson[0].salesYearFour, salesYearFive: businessPlansJson[0].salesYearFive, unused1: "yy", unused2: "xx" };
+    incomeStatment[1] = { id: 1, label: "Cost of Sales", cosYearOne: businessPlansJson[0].cosYearOne, cosYearTwo: businessPlansJson[0].cosYearTwo, cosYearThree: businessPlansJson[0].cosYearThree, cosYearFour: businessPlansJson[0].cosYearFour, cosYearFive: businessPlansJson[0].cosYearFive, unused1: "yy", unused2: "xx" };
+    incomeStatment[2] = { id: 1, label: "Gross Profit", grossProfitYearOne: businessPlansJson[0].grossProfitYearOne, grossProfitYearTwo: businessPlansJson[0].grossProfitYearTwo, grossProfitYearThree: businessPlansJson[0].grossProfitYearThree, grossProfitYearFour: businessPlansJson[0].grossProfitYearFour, grossProfitYearFive: businessPlansJson[0].grossProfitYearFive, unused1: "yy", unused2: "xx" };
+    incomeStatment[3] = { id: 1, label: "Expenses", expensesYearOne: businessPlansJson[0].expensesYearOne, expensesYearTwo: businessPlansJson[0].expensesYearTwo, expensesYearThree: businessPlansJson[0].expensesYearThree, expensesYearFour: businessPlansJson[0].expensesYearFour, expensesYearFive: businessPlansJson[0].expensesYearFive, unused1: "yy", unused2: "xx" };
+    incomeStatment[4] = { id: 1, label: "Net Profit", netProfitYearOne: businessPlansJson[0].netProfitYearOne, netProfitYearTwo: businessPlansJson[0].netProfitYearTwo, netProfitYearThree: businessPlansJson[0].netProfitYearThree, netProfitYearFour: businessPlansJson[0].netProfitYearFour, netProfitYearFive: businessPlansJson[0].netProfitYearFive, unused1: "yy", unused2: "xx" };
+
+    return incomeStatment;
+}
+
+function createCashFlowArray(businessPlansJson) {
+
+    let cashflow = new Array();
+    cashflow[0] = { id: 1, label: "Cash from Accounts Receivable", cashFromDebtorsYearOne: businessPlansJson[0].cashFromDebtorsYearOne, cashFromDebtorsYearTwo: businessPlansJson[0].cashFromDebtorsYearTwo, cashFromDebtorsYearThree: businessPlansJson[0].cashFromDebtorsYearThree, cashFromDebtorsYearFour: businessPlansJson[0].cashFromDebtorsYearFour, cashFromDebtorsYearFive: businessPlansJson[0].cashFromDebtorsYearFive, unused1: "yy", unused2: "xx" };
+    cashflow[1] = { id: 1, label: "Cash to Accounts Payable", cashToCreditorsYearOne: businessPlansJson[0].cashToCreditorsYearOne, cashToCreditorsYearTwo: businessPlansJson[0].cashToCreditorsYearTwo, cashToCreditorsYearThree: businessPlansJson[0].cashToCreditorsYearThree, cashToCreditorsYearFour: businessPlansJson[0].cashToCreditorsYearFour, cashToCreditorsYearFive: businessPlansJson[0].cashToCreditorsYearFive, unused1: "yy", unused2: "xx" };
+    cashflow[2] = { id: 1, label: "Expenses Paid", expensesPaidYearOne: businessPlansJson[0].expensesPaidYearOne, expensesPaidYearTwo: businessPlansJson[0].expensesPaidYearTwo, expensesPaidYearThree: businessPlansJson[0].expensesPaidYearThree, expensesPaidYearFour: businessPlansJson[0].expensesPaidYearFour, expensesPaidYearFive: businessPlansJson[0].expensesPaidYearFive, unused1: "yy", unused2: "xx" };
+    cashflow[3] = { id: 1, label: "Net Cash", netCashYearOne: businessPlansJson[0].netCashYearOne, netCashYearTwo: businessPlansJson[0].netCashYearTwo, netCashYearThree: businessPlansJson[0].netCashYearThree, netCashYearFour: businessPlansJson[0].netCashYearFour, netCashYearFive: businessPlansJson[0].netCashYearFive, unused1: "yy", unused2: "xx" };
+    cashflow[4] = { id: 1, label: "Cash Brought Forward", cashBfYearOne: businessPlansJson[0].cashBfYearOne, cashBfYearTwo: businessPlansJson[0].cashBfYearTwo, cashBfYearThree: businessPlansJson[0].cashBfYearThree, cashBfYearFour: businessPlansJson[0].cashBfYearFour, cashBfYearFive: businessPlansJson[0].cashBfYearFive, unused1: "yy", unused2: "xx" };
+    cashflow[5] = { id: 1, label: "Cash Carried Forward", cashCfYearOne: businessPlansJson[0].cashCfYearOne, cashCfYearTwo: businessPlansJson[0].cashCfYearTwo, cashCfYearThree: businessPlansJson[0].cashCfYearThree, cashCfYearFour: businessPlansJson[0].cashCfYearFour, cashCfYearFive: businessPlansJson[0].cashCfYearFive, unused1: "yy", unused2: "xx" };
+
+    return cashflow;
+}
+
+function createBreakevenArray(businessPlansJson) {
+
+    let breakeven = new Array();
+    breakeven[0] = { id: 1, label: "Break even Sales", breakEvenSalesYearOne: businessPlansJson[0].breakEvenSalesYearOne, breakEvenSalesYearTwo: businessPlansJson[0].breakEvenSalesYearTwo, breakEvenSalesThree: businessPlansJson[0].breakEvenSalesYearThree, breakEvenSalesYearFour: businessPlansJson[0].breakEvenSalesYearFour, breakEvenSalesYearFive: businessPlansJson[0].breakEvenSalesYearFive, unused1: "yy", unused2: "xx" };
+    breakeven[1] = { id: 1, label: "Break even Sales %", breakEvenSalesPercentYearOne: businessPlansJson[0].breakEvenSalesPercentYearOne, breakEvenSalesPercentYearTwo: businessPlansJson[0].breakEvenSalesPercentYearTwo, breakEvenSalesPercentYearThree: businessPlansJson[0].breakEvenSalesPercentYearThree, breakEvenSalesPercentYearFour: businessPlansJson[0].breakEvenSalesPercentYearFour, breakEvenSalesPercentYearFive: businessPlansJson[0].breakEvenSalesPercentYearFive, unused1: "yy", unused2: "xx" };
+    breakeven[2] = { id: 1, label: "Break even Days", breakEvenDaysYearOne: businessPlansJson[0].breakEvenDaysYearOne, breakEvenDaysYearTwo: businessPlansJson[0].breakEvenDaysYearTwo, breakEvenDaysYearThree: businessPlansJson[0].breakEvenDaysYearThree, breakEvenDaysYearFour: businessPlansJson[0].breakEvenDaysYearFour, breakEvenDaysYearFive: businessPlansJson[0].breakEvenDaysYearFive, unused1: "yy", unused2: "xx" };
+
+    return breakeven;
+}
+
+function createExpensesArray(businessPlansJson) {
+
+    let expenses = new Array();
+    expenses[0] = { id: 1, label: "Bank Charges & Interest", bankExpensesYearOne: businessPlansJson[0].bankExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[1] = { id: 1, label: "Depreciation", depreciationExpensesYearOne: businessPlansJson[0].depreciationExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[2] = { id: 1, label: "Wages & Employment", employeeExpensesYearOne: businessPlansJson[0].employeeExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[3] = { id: 1, label: "Insurances", insuranceExpensesYearOne: businessPlansJson[0].insuranceExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[4] = { id: 1, label: "Advertising & Marketing", marketingExpensesYearOne: businessPlansJson[0].marketingExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[5] = { id: 1, label: "Office Costs", officeExpensesYearOne: businessPlansJson[0].officeExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[6] = { id: 1, label: "Other", otherExpensesYearOne: businessPlansJson[0].otherExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[7] = { id: 1, label: "Rent & Lease", premisesExpensesYearOne: businessPlansJson[0].premisesExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[8] = { id: 1, label: "Professional Fees", professionaExpensesYearOne: businessPlansJson[0].professionaExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[9] = { id: 1, label: "Postage & Shipping", shippingExpensesYearOne: businessPlansJson[0].shippingExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[10] = { id: 1, label: "Travel", travelExpensesYearOne: businessPlansJson[0].travelExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[11] = { id: 1, label: "Utilities, Gas, Electricity & Internet", utilityExpensesYearOne: businessPlansJson[0].utilityExpensesYearOne, unused1: "yy", unused2: "xx" };
+    expenses[12] = { id: 1, label: "Total", expensesYearOne: businessPlansJson[0].expensesYearOne, unused1: "yy", unused2: "xx" };
+
+    return expenses;
+}
+
+
+exports.ifPremiumGenerateBusinessPlanDocx = ifPremiumGenerateBusinessPlanDocx;
+//exports.tryDocx = tryDocx;
+
+
+
+
+

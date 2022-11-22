@@ -1,0 +1,505 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <title>Business Planning</title>
+
+   
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="{% static 'https://fonts.gstatic.com/' %}">
+    <link href="{% static './finance_files/css' %}" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{% static './finance_files/app.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static './finance_files/icon' %}">
+
+    <link rel="stylesheet" id="stylesheet" href="{% static './finance_files/bpqb.css' %}">
+
+    <link rel="stylesheet" href="{% static './finance_files/Chart.min.css' %}">
+    <style>
+      .navbar button{
+        background-color: #670f90;
+      }
+      .next{
+        width: 105px;
+        background-color: #670f90;
+      }
+      .previous{
+        width: 95px;
+        background-color: #670f90;
+      }
+      .next a{
+      color: #ffffff;
+    }
+    .previous a{
+      color: #ffffff;
+    }
+    </style>
+</head>
+
+
+
+
+<body>
+    <div id="app"><nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+      <div class="container">
+        <a data-html2canvas-ignore="true" href="" class="navbar-brand"><img src="{% static 'images/ENTR Lane logo.png' %}" width="80"height="80" class="logo"></a> <button data-html2canvas-ignore="true" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" ><span class="navbar-toggler-icon"></span></button></div> <div data-html2canvas-ignore="true" id="navbarSupportedContent" class="collapse navbar-collapse"><ul class="navbar-nav mr-auto"></ul> <ul class="navbar-nav ml-auto"><a href=""><button type="button" class="button">Go to trial</button></a> 
+                            
+ </a> </div></nav></div>
+
+    <main>
+        
+
+
+
+
+<div class="tableBox">
+    <form method="POST" action="">
+      {% csrf_token %}
+
+      <div class="inputRow">
+        <div class="inputColumn1">
+          <div class="inputLabel">
+            <h2 class="businessNameHeader"></h2>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="inputRow">
+        <div class="inputRow">
+
+          <div class="inputColumn1">
+            <div class="inputLabel"> <h5>Finance</h5>
+            </div>
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Currency Symbol <sup>*</sup> (e.g. FRW)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpCurrencySymbol">The currency symbol for money in your country e.g. $, FRW <br>
+</span>
+              
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="currencysymbol" size="100" value=""> <br>
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Plan Start Year <sup>*</sup> (e.g. 2021)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpPlanStartYear">Year when the plan will start.<br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="planstartyear" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <br>
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> <h5>Sales Estimates</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Average number of customers using service per day <sup>*</sup>
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpSalesUnitFreqPerDayHelp">Average sales units sold in a day</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="salesunitfreqperday" id="salesUnitFreqPerDay" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Average customer spend on service each time <sup>*</sup> (Money Value)
+              <span class=" popup material-icons">help</span>
+              <span class="popupText"  id="popUpSalesUnitPriceHelp">Average sale price of a unit.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="salesunitprice" id="salesUnitPrice" size="100" value=""> <br>
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Average service sales per day <sup>*</sup> (Calculated)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpSalesPerDayHelp">Average sales value in a day</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formcalculatedfinanceinput " type="text" name="salesperday" id="salesPerDay" size="100" value="" readonly=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Sales in Year 1 <sup>*</sup> (Calculated)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpSalesYear1Help">Sales (money value) in the first year of the plan.<br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formcalculatedfinanceinput " type="text" name="salesyearone" id="salesYearOne" size="100" value="" readonly=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Sales Change % (each year of growth or decline) <sup>*</sup>
+              <span class=" popup material-icons">help</span>
+              <span class="popupText" id="popUpSalesGrowthPercentHelp">Percentage that the sales are expected to grow each year. e.g.<br><b>10 percent growth</b> will make 1000 worth 1100 in year two and 1464 in year five.<br><b>50 percent growth</b> will make 1000 worth 1500 in year two and 5062 in year five.<br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="salesgrowthpercent" size="100" value=""> <br>
+          </div>
+        </div>
+
+
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Cost of Sales % <sup>*</sup>
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText" id="popUpCOSPercentHelp">Cost of the goods and services sold as a percentage of the sales. If you sell $1000 worth of goods or services and they cost you $400 (to buy, provide or manufacture) then you have a 40% cost of sales.<br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="cosofsales" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <br>
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> <h5>Expenses Estimates Year 1</h5>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Bank Charges &amp; Interest <sup>*</sup> (Money Value)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpbankExpensesYearOneHelp">Bank charges and interest</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="bankexpensesyearone" id="bankExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Depreciation <sup>*</sup> (Money Value)
+              <span class=" popup material-icons">help</span>
+              <span class="popupText"  id="popUpdepreciationExpensesYearOneHelp">Depreciation is a way of charging for a fixed asset (e.g. equipment) over its life. For example, if you buy a piece of equipment for 1000 and it has a life of 4 years, then you would charge 250 here in the income statement. </span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="depreciationexpensesyearone" id="depreciationExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Wages &amp; Employment <sup>*</sup> (Money Value)
+              <span class=" popup material-icons">help</span>
+              <span class="popupText"  id="popUpemployeeExpensesYearOneHelp">Employee wages, plus any on costs like national insurance.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="employeeexpensesyearone" id="employeeExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Insurances <sup>*</sup> (Money Value)
+              <span class=" popup material-icons">help</span>
+              <span class="popupText"  id="popUpinsuranceExpensesYearOneHelp">Costs of building, employment and other insurances</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="insuranceexpensesyearone" id="insuranceExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Advertising &amp; Marketing <sup>*</sup> (Money Value)
+              <span class=" popup material-icons">help</span>
+              <span class="popupText" id="popUpmarketingExpensesYearOneHelp">Cost of advertising and other promotions.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"" type="text" name="marketingexpensesyearone" id="marketingExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Office Costs (e.g. ink) <sup>*</sup> (Money Value)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText" id="popUpofficeExpensesYearOneHelp">Cost of consumables like ink, pens and other office items.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="officeexpensesyearone" id="officeExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Other <sup>*</sup> (Money Value)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpotherExpensesYearOneHelp">Any expenses not covered by the other categories.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="otherexpensesyearone" id="otherExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Rent &amp; Lease <sup>*</sup> (Money Value)
+              <span class=" popup material-icons">help</span>
+              <span class="popupText" id="popUppremisesExpensesYearOneHelp">Cost of rent, leases and rates on premises.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="premisesexpensesyearone" id="premisesExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Professional Fees <sup>*</sup> (Money Value)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpprofessionaExpensesYearOneHelp">Cost of accountants, lawyers and other consultancy services.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="professionaexpensesyearone" id="professionaExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Postage &amp; Shipping <sup>*</sup> (Money Value)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpshippingExpensesYearOneHelp">Cost of postage, couriers and other shipping.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="shippingexpensesyearone" id="shippingExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Travel <sup>*</sup> (Money Value)
+              <span class=" popup material-icons">help</span>
+              <span class="popupText" id="popUptravelExpensesYearOneHelp">Cost of work related travel (e.g. visiting customers)</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput"  type="text" name="travelexpensesyearone" id="travelExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Utilities, Gas, Electricity &amp; Internet <sup>*</sup> (Money Value)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUputilityExpensesYearOneHelp">Cost of heat, light, telecoms and internet.</span>
+            </div>
+
+          </div>
+
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="utilityexpensesyearone" id="utilityExpensesYearOne" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Total Expenses in Year 1 <sup>*</sup> (Calculated)
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpExpensesYear1Help">Expenses of running the business in the first year of the plan. These are overhead costs not linked to the goods and services sold e.g. telephone, building insurance, administration staff, light and heat, professional fees<br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formcalculatedfinanceinput" type="text" name="expensesyearone" id="expensesYearOne" size="100" value="" readonly=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Expenses Growth % each year <sup>*</sup>
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpExpensesGrowthPercentHelp">Percentage that the overhead expenses are expected to grow each year. When deciding on the percentage figure consider inflation and also how your five year objective will affect the size of the business and its costs e.g. <br><b>2 percent growth</b> in 1000 of expenses will make 1020 in year two and 1082 in year five.<br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="expensesgrowthpercent" size="100" value=""> <br>
+          </div>
+        </div>
+        <br>
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> <h5>Cash Estimates</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Days credit given to customers <sup>*</sup>
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText" id="popUpCustomerDaysCreditHelp">The number of days you give your customers to pay for goods or services provided e.g. <br><b>Business to business:</b> 30 days is often the formally stated credit in many industries, but it can take longer in real life. Also some businesses that are new or have a poor credit history may be asked for so called \'cash up front\', that is 0 days credit.<br><b>Retail:</b> customers are rarely given credit, so likely to be 0 days credit. <br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="customerdayscredit" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Days credit given by suppliers <sup>*</sup>
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText" id="popUpSupplierDaysCreditHelp">The number of days you get from your suppliers to pay for the goods or services provided. 30 days is often the formally stated credit in many industries, but it can be longer in real life. However, if you are starting a new business without a credit history then you may not be able to get any credit and could be asked to pay \'cash up front\', that is 0 days credit.<br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="supplierdayscredit" size="100" value=""> <br>
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+
+            <div class="inputLabel"> Cash invested by owners <sup>*</sup>
+              <span class=" popup material-icons" >help</span>
+              <span class="popupText"  id="popUpEquityCashInjectionHelp">This is money (cash or bank deposits) put into the business for the long term by the owner(s) during the first year. This figure is used as part of the cash flow forecast so it is important to only include actual money and not equivalent investments, like giving the business equipment or some other asset.  <br>
+</span>
+            </div>
+
+          </div>
+          <div class="inputColumn2">
+            <input class="formfinanceinput" type="text" name="equitycashinjection" size="100" value=""> <br>
+          </div>
+        </div>
+
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="textinput"> </div>
+          </div>
+          <div class="inputColumn2">
+            <button class="button previous" type="submit" ><a href="{% url 'strategy' %}">Previous</a></button>
+            <button class="button next" type="submit" ><a href="{% url 'finance' %}">Show Plan</a></button>
+          </div>
+        </div>
+
+
+    
+  </div></form>
+
+
+
+
+    </div></main>
+
+
+
+</body>
+</html>

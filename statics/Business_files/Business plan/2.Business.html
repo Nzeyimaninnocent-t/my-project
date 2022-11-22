@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+  <title>Business Planning</title>
+
+
+
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+  <link href="./Business_files/css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link href="./Business_files/app.css" rel="stylesheet">
+  <link rel="stylesheet" href="./Business_files/icon">
+
+  <link rel="stylesheet" id="stylesheet" href="./Business_files/bpqb.css">
+
+  <link rel="stylesheet" href="./Business_files/Chart.min.css">
+
+  
+</head>
+
+
+
+
+<body>
+
+  <main>
+
+    <div class="tableBox">
+
+
+      <form method="POST" id="thisForm" action="">
+      
+
+        <input type="hidden" name="_token" value="">
+
+        <input type="hidden" name="businessPlanId" value="5358">
+        <input type="hidden" name="bladeName" value="editBusinessOverview">
+
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel">
+              <h2 class="businessNameHeader"></h2>
+            </div>
+          </div>
+        </div>
+        <div class="inputRow">
+
+          <div class="inputColumn1">
+            <div class="inputLabel"> <b>Business</b>
+            </div>
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+            <div class="inputLabel"> Business Name <sup>*</sup>
+
+              <span class="popupText" 
+                id="popUpBusinessOverviewHelpText" style="visibility: hidden;">New
+                - Five Year Objective<br>X Close</span>
+
+            </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountBusinessName"></span>
+            <input class="forminput" type="text" placeholder="e.g. Acme Corporation" name="businessName">
+             <br>
+
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+            <div class="inputLabel"> Legal Form <sup>*</sup>
+              
+              <span class="popupText" id="popUpLegalFormHelpText" style="visibility: hidden;">The main legal forms of business are shared in
+                many parts of the world:<br><b>Sole Trader:</b> one owner runs their business with full
+                responsibility.<br><b>Partnership:</b> partners share running of their business with full
+                responsibility.<br><b>Limited Liability Company: </b> business separate from owners so they have reduced
+                responsibility.<br>
+              </span>
+            </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountLegalForm"> </span>
+            <input class="forminput" type="text" placeholder="e.g. sole trader" name="legalForm" id="legalForm"
+              size="100" maxlength="49" value=""> <br>
+
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1 popup">
+            <div class="inputLabel"> 5 Year Objective <sup>*</sup>
+              <span class=" popup material-icons"
+                >help</span>
+              <span class="popupText" 
+                id="popUpFiveYearObjective" style="visibility: hidden;">Describe your objective for the next five years
+                e.g.<br><b>Growing existing market:</b> increasing sales by 200%, getting 500K subscribers, takeover
+                main competitor<br><b>Growing new markets:</b> franchising in every state, doubling sales by exporting
+                products to Europe, licensing products in US<br><b>Growing new products/services:</b> launching next
+                version of product, moving service online to grow profits by 50%<br><b>Selling Off:</b> achieving an IPO
+                of $1M, retiring and selling business for $1M<br><b>Changing Direction:</b> taking over our main
+                supplier to reduce costs by 25%, extending our luxury brand into ...<br>
+              </span>
+            </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountFiveYearObjective"> </span>
+            <input class="forminput" type="text" placeholder="e.g. increasing profits by 200%"
+             
+   name="fiveYearObjective" size="100"
+              maxlength="199" value="jkhk"> <br>
+
+          </div>
+        </div>
+
+        <div class="inputRow">
+
+          <div class="inputColumn1">
+            <div class="inputLabel" id="contactLinks"> <b>Business Details</b> [Optional]
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Address 1 </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountAddress1"> </span>
+            <input class="forminput" type="text" placeholder="e.g. Main Street " name="address1" id="address1"
+             
+              size="100" maxlength="199" value=""> <br>
+
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Address 2 </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountAddress2"> </span>
+            <input class="forminput" type="text" placeholder="e.g. Your District" name="address2" id="address2"
+             
+              size="100" maxlength="199" value=""> <br>
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> City </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountCity"> </span>
+            <input class="forminput" type="text" placeholder="e.g. Anytown" name="city" id="city"
+             
+              size="100" maxlength="99" value="jnjkl"> <br>
+
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Country </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountCountry"> </span>
+            <input class="forminput" type="text" placeholder="e.g. US" name="country" id="country"
+             
+              size="100" maxlength="99" value="jkhkl"> <br>
+
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Zip </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountZip"> </span>
+            <input class="forminput" type="text" placeholder="e.g. 99999" name="zip" id="zip"
+             
+              size="100" maxlength="99" value="1233"> <br>
+
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Web Address </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountWebAddress"> </span>
+            <input class="forminput" type="text" placeholder="e.g. www.example.com"
+             
+              name="webAddress" size="100" maxlength="99" value="www.inyarwl.vc0lo"> <br>
+
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Telephone </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountTelephone"> </span>
+            <input class="forminput" type="text" placeholder="e.g. 01234567890" name="telephone"
+             
+              size="100" maxlength="29" value="181787"> <br>
+
+          </div>
+        </div>
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Mobile </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountMobile"> </span>
+            <input class="forminput" type="text" placeholder="e.g. 01234567890" name="mobile"
+             
+              size="100" maxlength="29" value="5668"> <br>
+
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Email </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountEmail"> </span>
+            <input class="forminput" type="text" placeholder="e.g. your@emailaddress.com"
+             
+              name="email" size="100" maxlength="99" value="info@idatech.rw"> <br>
+
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> WhatsApp </div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountWhatsApp"> </span>
+            <input class="forminput" type="text" placeholder="e.g. +012345678" name="whatsapp"
+             
+              size="100" maxlength="99" value="658797890"> <br>
+
+          </div>
+        </div>
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="inputLabel"> Skype Name</div>
+          </div>
+          <div class="inputColumn2">
+            <span class="showCharCount" id="showCharCountSkype"> </span>
+            <input class="forminput" type="text" placeholder="e.g. live:yourskypename" name="skype"
+              
+              size="100" maxlength="99" value="eeeeh"> <br>
+
+          </div>
+        </div>
+
+
+
+
+
+
+        <div class="inputRow">
+          <div class="inputColumn1">
+            <div class="textinput"> </div>
+          </div>
+          <div class="inputColumn2">
+            <input class="button" onmousedown="submitThisForm()" type="button" value="Save">
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+
+
+    <script>
+
+      document.onload = timedShowPopUp('popUpBusinessOverviewHelpText', 5000);
+
+    </script>
+
+
+  </main>
+
+
+
+  <iframe name="__privateStripeMetricsController9020" frameborder="0" allowtransparency="true" scrolling="no"
+    role="presentation" allow="payment *" src="./Business_files/m-outer-93afeeb17bc37e711759584dbfc50d47.html"
+    aria-hidden="true" tabindex="-1"
+    style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe>
+</body>
+
+</html>

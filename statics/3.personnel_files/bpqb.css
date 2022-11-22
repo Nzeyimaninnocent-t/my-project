@@ -1,0 +1,859 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --mdc-theme-primary: #3F51B5;
+    --mdc-theme-secondary: #3F51B5;
+    background-color: #F8FAFC;
+}
+
+a {
+    color: #3F51B5;
+}
+
+a:hover {
+    color: #3F51B5;
+}
+
+.anav {
+    color: white;
+    text-decoration: none;
+}
+
+
+.button {
+    border: 2px solid black;
+    background-color: #3F51B5;
+    border-color: white;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.showPlanButton {
+    border: 2px solid black;
+    background-color: #3F51B5;
+    border-color: white;
+    color: white;
+    border-radius: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.showPlanButton:hover {
+    background-color: rgb(132, 143, 228);
+    color: white;
+}
+
+.buttonFree {
+    border: 2px solid black;
+    background-color: grey;
+    border-color: white;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.buttonPrem {
+    border: 2px solid black;
+    border-color: white;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #83B024;
+    color: white;
+}
+
+.buttonFreeBusinessPlan {
+    border: 2px solid black;
+    background-color: grey;
+    border-color: white;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.buttonPremBusinessPlan {
+    border: 2px solid black;
+    border-color: white;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #83B024;
+    color: white;
+    font-size: 0.8em;
+}
+
+#stringLowerCase {
+    text-transform: lowercase;
+}
+
+.buttonDisabled {
+    background-color: gray;
+    border-color: white;
+    color: white;
+    cursor: not-allowed;
+}
+
+.bizzlinkdot {   
+    margin-left: 2px;
+    margin-right: 1px;
+}
+
+.welcomeFooter {
+    color: green;
+    font-size: 50px;
+}
+
+.button:hover {
+    background-color: rgb(132, 143, 228);
+    color: white;
+}
+
+.buttonFree:hover {
+    background-color: #93B024;
+    color: white;
+}
+
+.buttonPrem:hover {
+    background-color: #93B024;
+    color: white;
+}
+
+.backButton {
+    color: #3F51B5;
+    border: none;
+    background-color: white;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    border: none;
+    background-color: white;
+    color: #3F51B5;
+    padding-left: 0px;
+    cursor: pointer;
+}
+
+input[type=file]::-webkit-file-upload-button:hover {
+    color: rgb(132, 143, 228);
+}
+
+.strapLine {
+    color: #3F51B5;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.headText {
+    color: #3F51B5;
+    font-size: 20px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+.text {
+    color: #3F51B5;
+}
+
+.table1 {
+    color: black;
+    width: 100%;
+    table-layout: fixed;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+.table1 tr:hover {
+    background-color: rgb(207, 214, 255);
+}
+
+.table1 thead td {
+    background-color: #3F51B5;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.tr1 {
+    border: 1px solid black;
+    border-color: #D2DEF1;
+}
+
+.tr2 td {
+    background-color: #3F51B5;
+    border-bottom: 1pt solid black;
+    border-color: #D2DEF1;
+    color: white;
+}
+
+.tr3 {
+    background-color: #3F51B5;
+    border-bottom: 1pt solid black;
+    border-color: #D2DEF1;
+    color: white;
+}
+
+.tablePlan {
+    color: #3F51B5;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.tablePlan thead td {
+    background-color: #3F51B5;
+    padding: 5px;
+    color: white;
+}
+
+.backArrow {
+    background-color: white;
+    color: #3F51B5;
+    cursor: pointer;
+}
+
+.tickColor {
+    color: #83B024;
+}
+
+.crossColor {
+    color: grey;
+}
+
+.businessPlanListColHead1 {
+    width: 65%;
+    word-break: keep-all;
+    padding-left: 16px;
+    cursor: default;
+}
+
+.businessPlanListColHead2 {
+    width: 25%;
+    word-break: keep-all;
+    cursor: default;
+    text-align: left;
+}
+
+.businessPlanListColHead3 {
+    width: 10%;
+    word-break: keep-all;
+    cursor: default;
+    text-align: left;
+}
+
+.businessPlanListCol1 {
+    width: 65%;
+    word-break: keep-all;
+    padding-left: 16px;
+    cursor: pointer;
+}
+
+.businessPlanListCol2 {
+    width: 25%;
+    word-break: keep-all;
+    cursor: pointer;
+    text-align: center;
+}
+
+.businessPlanListCol3 {
+    width: 10%;
+    word-break: keep-all;
+    cursor: pointer;
+    text-align: center;
+}
+
+.businessPlanHomeColHead1 {
+    width: 70%;
+    word-break: keep-all;
+    padding-left: 16px;
+    cursor: default;
+}
+
+.businessPlanHomeColHead2 {
+    width: 30%;
+    word-break: keep-all;
+    cursor: default;
+    text-align: center;
+}
+
+.businessPlanHomeCol1 {
+    width: 70%;
+    word-break: keep-all;
+    padding-left: 16px;
+    cursor: pointer;
+}
+
+.businessPlanHomeCol2 {
+    width: 30%;
+    word-break: keep-all;
+    cursor: pointer;
+    text-align: center;
+}
+
+.col1 {
+    width: 30%;
+    word-break: keep-all;
+    padding-left: 5px;
+}
+
+.col2 {
+    width: 35%;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.col3 {
+    width: 35%;
+    text-align: center;
+    word-break: keep-all;
+}
+
+.col4 {
+    Text-align: right;
+}
+
+.col5 {
+    Text-align: right;
+    padding: 5px;
+}
+
+.colPlan {
+    width: 100%;
+    padding: 1%;
+}
+
+.colPitch {
+    width: 100%;
+    padding: 1%;
+}
+
+.colOutputs {
+    width: 20%;
+    text-align: center;
+}
+
+.colOutputsPitch {
+    width: 25%;
+    text-align: center;
+}
+
+.colOutputsLabel {
+    width: 20%;
+    text-align: left;
+}
+
+.colOutputsPitchLabel {
+    width: 25%;
+    text-align: left;
+}
+
+.disabledDiv {
+    pointer-events: none;
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.newBusinessPlanCard {
+    height: 100%;
+    padding-bottom: 250px;
+    /*background-color: #f8fbf7;*/
+    /*background-color: #F8FAFC;*/
+    /*background-color: green;*/
+    /*background-color: #3F51B5;*/
+}
+
+.tableBox {
+    float: left;
+    width: 100%;
+    color: #3F51B5;
+    /*background-color: #f8fbf7;*/
+    /*background-color: red;*/
+    /*background-color: #F8FAFC;*/
+    padding-top: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 250px;
+}
+
+.tablePlanBox {
+    float: left;
+    width: 100%;
+    color: #3F51B5;
+    /*background-color: #f8fbf7;*/
+    /*background-color: red;*/
+    /*background-color: #F8FAFC;*/
+    padding-top: 20px;
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 0%;
+}
+
+.detailsCard {
+    height: 100%;
+    background: #f8fbf7;
+  }
+
+.inputBorderBox {
+    border: 1px solid rgb(215, 211, 211);
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  
+
+.inputColumn1 {
+    padding-left: 20px;
+    padding-right: 20px;
+    float: left;
+    width: 100%;
+}
+
+.inputColumn2 {
+    padding-left: 20px;
+    padding-right: 20px;
+    float: left;
+    width: 100%;
+}
+
+.textinput {
+    width: 100%;
+    padding: 5px;
+    font-size: 1em;
+    color: #3F51B5;
+}
+
+.businessNameHeader {
+    color: #3F51B5;
+}
+
+.businessPlan {
+    color: black;
+}
+
+.inputLabel {
+    width: 100%;
+    padding: 1px;
+    font-size: 1em;
+    color: #636365;
+    cursor: default;
+}
+
+.inputLabelCenter {
+    width: 100%;
+    padding: 1px;
+    font-size: 1em;
+    color: white;
+    text-align: center;
+    cursor: default;
+}
+
+.forminput {
+    width: 100%;
+    font-size: 1em;
+    color: black;
+}
+
+.formfinanceinput {
+    width: 100px;
+    font-size: 1em;
+    color: black;
+}
+
+.formcalculatedfinanceinput {
+    width: 100px;
+    font-size: 1em;
+    color: black;
+    background-color: lightgray;
+}
+
+.inputRow:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding-top: 10px;
+}
+
+.helpTextCol {
+    min-width: 100%;
+}
+
+.textBlur {
+    color: transparent;
+    text-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+}
+
+/* botom bar */
+
+.bottomBar {
+    background-color: #333;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+/* three dots menu*/
+
+.three-dots:after {
+    text-align: right;
+    cursor: pointer;
+    color: #3F51B5;
+    content: '\2807';
+    font-size: 1.2em;
+    padding-top: 2px;
+    padding-left: 5%;
+}
+
+.three_dots_dropdown {
+    position: absolute;
+    transform: translateX(-0%);
+    right: 3%;
+    background-color: white;
+    outline: solid 1px lightgray;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    opacity: 0;
+    z-index: -1;
+    max-height: 0;
+    transition: opacity 0.1s, z-index 0.1s;
+}
+
+.three_dots dropdown-container:focus {
+    outline: none;
+}
+
+.three_dots_dropdown-container:focus .three_dots_dropdown {
+    opacity: 1;
+    z-index: 100;
+    max-height: 100vh;
+    transition: opacity 0.2s, z-index 0.2s;
+}
+
+.three_dot_dropdown_disabled {
+    color: gray;
+    cursor: not-allowed;
+}
+
+/* burger menu*/
+
+
+.burger_menu::after {
+    text-align: right;
+    cursor: pointer;
+    color: black;
+    content: '\2630';
+    font-size: 24px; 
+    padding-left: 2%;   
+}
+
+.burger_menu_dropdown-container {
+    position: fixed;
+    z-index:1;
+    width: 100%;
+    background-color: white; 
+    outline: solid 1px lightgray;
+}
+
+
+.burger_menu_dropdown {
+    position: absolute;
+    outline: solid 1px lightgray;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    padding-right: 15px;
+}
+
+.burger_menu_dropdown-container:focus  .burger_menu_dropdown{
+    z-index: 100;
+    max-height: 100vh;
+    
+}
+
+.burger_menu_element:hover {
+    font-weight: bold;
+    cursor:grab;
+}
+
+.burger_menu_icon {
+    border: none;
+    color: black;
+    background-color: white;
+    padding: 5px 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+
+/* Progress Bar */
+
+#progressContainer {
+    background-color: rgb(230, 228, 228);
+    height: 10px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.spinner {
+    position: absolute;
+    left: 50%;
+    height: 30px;
+    width: 30px;
+    margin: 0px auto;
+    -webkit-animation: rotation .6s infinite linear;
+    -moz-animation: rotation .6s infinite linear;
+    -o-animation: rotation .6s infinite linear;
+    animation: rotation .6s infinite linear;
+    border-left: 6px solid rgba(255, 255, 255, 0.15);
+    border-right: 6px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 6px solid rgba(255, 255, 255, 0.15);
+    border-top: 6px solid rgba(255, 255, 255, 0.8);
+    border-radius: 100%;
+}
+
+#progressbar {}
+
+#progressbar>div {
+    background-color: #83B024;
+    width: 100%;
+    height: 10px;
+    border-radius: 4px;
+}
+
+/* Sackbar */
+
+#snackbar {
+    visibility: hidden;
+    width: 100%;
+    background-color: #3F51B5;
+    ;
+    color: white;
+    text-align: left;
+    padding: 8px 8px;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0%;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 5.5s;
+    animation: fadein 0.5s, fadeout 0.5s 5.5s;
+}
+
+.showCharCount {
+    color: #636365;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+/* Popup  */
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #3F51B5;
+}
+
+/* The actual popup (appears on top) */
+
+.popup .popupText {
+    visibility: hidden;
+    width: 100%;
+    background-color: #3F51B5;
+    color: white;
+    text-align: left;
+    padding: 8px 8px;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    left: 0%;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+/* Sales Growth Layout */
+
+.salesGrowthCellLabel {
+    display: table-cell; 
+    width: 85px;   
+    vertical-align: top; 
+    padding-right: 20px;
+    padding-left: 10px;
+}
+
+.salesGrowthCellImage {
+    display: table-cell; 
+    width: 85px;   
+    vertical-align: top; 
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+.salesGrowthImage {
+    width: 75px;   
+    height: 75px;       
+}
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+
+@-moz-keyframes rotation {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(359deg);
+    }
+}
+
+@-o-keyframes rotation {
+    from {
+        -o-transform: rotate(0deg);
+    }
+    to {
+        -o-transform: rotate(359deg);
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -50px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Toggle this class when clicking on the popup container (hide the popup) */
+
+.popup .hide {
+    visibility: hidden;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Select Tag */
+
+.selectinput {
+    color: #3F51B5;
+    background-color: #fff;
+    padding: .6em 1.4em .5em .8em;
+}
+
+/* Add animation (fade in the popup) */
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media(min-width: 1024px) {}
+
+/* Responsive CSS */
+
+@media screen and (max-width: 500px) {
+
+    .salesGrowthCellLabel {
+        display: table-cell; 
+        width: 60px; 
+        font-size: 0.8em; 
+        vertical-align: top; 
+        padding-right: 0px;
+        padding-left: 2px;
+    }
+    
+    .salesGrowthCellImage {
+        display: table-cell; 
+        width: 60px;   
+        height: 60px;   
+        vertical-align: top; 
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+
+    .salesGrowthImage {
+        width: 50px;   
+        height: 50px;       
+    }
+   
+}
+
+@media print {
+    #doNotPrint {
+        display: none;
+    }
+    div {
+        float: none !important;
+    }
+    body {
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* BizzLink */
+

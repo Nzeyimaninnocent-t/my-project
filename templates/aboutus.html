@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+  <title>about</title>
+</head>
+<body>
+  <div class="nav">
+  <div class="topnav" id="myTopnav">
+    <img src="{% static 'pic/ENTR Lane logo.png' %}"  class="log">
+    <a href="{% url 'index' %}" class="active">Home</a>
+    <a href="#service">Services</a>
+    <a href="#blog">Blog</a>
+    <a href="{% url 'aboutus' %}">About us</a>
+
+      <a href="{% url 'login' %}"><button  type="submit" value=""  id="button">Login</button></a>
+      <a href="{% url 'index' %}"><button  type="submit" value=""id="button">Get started</button></a>
+    </div>
+ 
+    </div>
+    
+   
+  </div>
+  <div class="container">
+  <div class="p">
+   <h1>Our   MISSION</h1>
+   <p>Digititizing entrepreneurial tools by providind<br>Unifield digital entrepreneurial tools to facilitate<br>
+    Entrepreneurial to start and grow SMEs.</p>
+  </div>
+    <div class="image">
+      <img src="{% static 'pic/m.jpg' %}" id="img"> 
+    </div>
+  </div>
+ 
+  <div class="sec">
+    <div  class="pic">
+      <img src="{% static 'pic/o.jpg' %}" id="photo" >
+      </div>
+      <div class="no">
+    <h1 id="one">Our  VISION</h1>
+    <p id="two">Create Our Unifield digital entrepreneurial tools<br>in most used languages in Africa to make it<br>
+     more accesible and useful to all enterepreneurs<br>from all categories</p> 
+  </div>
+  </div>
+  <div class="buttom">
+    <div class="p">
+   <h1>Our   PRODUCTS</h1>
+    <p>Digititizing entrepreneurial tools by providind<br>Unifield digital entrepreneurial tools to facilitate<br>
+     Entrepreneurial to start and grow SMEs.</p>
+    </div>
+     <div class="image">
+      <img src="{% static 'pic/u.jpg' %}" id="img" >
+     </div>
+  </div>
+
+   
+  
+  </body>
+</html>
